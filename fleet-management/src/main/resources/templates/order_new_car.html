@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{base}" th:with="currentPage='order-new-car'">>
+<div layout:fragment="content">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Order new car</h1>
+  </div>
+
+  <form class="row g-3" method="post" >
+    <div class="col-md-6">
+      <datalist id="manufacturers">
+        <option>VW</option>
+        <option>BMW</option>
+        <option>Audi</option>
+        <option>Tesla</option>
+      </datalist>
+      <label for="manufacturer" class="form-label">Manufacturer</label>
+      <input type="text"
+             class="form-control"
+             list="manufacturers"
+             id="manufacturer" name="manufacturer"
+             size="50"
+             autocomplete="off" />
+    </div>
+    <div class="col-md-6">
+      <datalist id="models">
+        <option>Model 3</option>
+        <option>ID.3</option>
+        <option>Polo</option>
+        <option>Golf GTS</option>
+      </datalist>
+      <label for="manufacturer" class="form-label">Model</label>
+      <input type="text"
+             class="form-control"
+             list="models"
+             id="model" name="model"
+             size="50"
+             autocomplete="off" />
+    </div>
+    <div class="col-md-6">
+      <datalist id="modelYears">
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+      </datalist>
+      <label for="manufacturer" class="form-label">Model year</label>
+      <input type="text"
+             class="form-control"
+             list="modelYears"
+             id="modelYear" name="modelYear"
+             size="50"
+             autocomplete="off" />
+    </div>
+
+    <div class="col-md-6">
+      <datalist id="colours">
+        <option value="White">White</option>
+        <option value="Black">Black</option>
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+      </datalist>
+      <label for="manufacturer" class="form-label">Colours</label>
+      <input type="text"
+             class="form-control"
+             list="colours"
+             id="colour" name="colour"
+             size="50"
+             autocomplete="off" />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Place order</button>
+    </div>
+  </form>
+</div>
+</html>

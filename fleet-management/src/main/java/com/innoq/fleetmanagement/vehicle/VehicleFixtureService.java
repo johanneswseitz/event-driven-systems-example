@@ -18,8 +18,11 @@ public class VehicleFixtureService {
 
   @PostConstruct
   public void addVehicleFixtures() {
-    vehicleRepository.save(new Vehicle(CAR, "VW", "Golf", "2022", IN_SERVICE, "green", "ME-IQ-999"));
-    vehicleRepository.save(new Vehicle(CAR, "BMW", "i3", "2022", AVAILABLE, "black", "ME-IQ-998"));
-    vehicleRepository.save(new Vehicle(CAR, "Tesla", "Model 3", "2022", ORDERED, "green", "ME-IQ-997"));
+    if (vehicleRepository.count() != 0){
+      return;
+    }
+    vehicleRepository.save(new Vehicle(CAR, "VW", "Golf", "2022", IN_SERVICE, "Green", "ME-IQ-999"));
+    vehicleRepository.save(new Vehicle(CAR, "BMW", "i3", "2022", AVAILABLE, "Black", "ME-IQ-998"));
+    vehicleRepository.save(new Vehicle(CAR, "Tesla", "Model 3", "2022", ORDERED, "Green", "ME-IQ-997"));
   }
 }
