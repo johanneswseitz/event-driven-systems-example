@@ -43,6 +43,26 @@ public class Vehicle {
     return type;
   }
 
+  public String getModel() {
+    return model;
+  }
+
+  public String getModelYear() {
+    return modelYear;
+  }
+
+  public String getLicencePlate() {
+    return licencePlate;
+  }
+
+  public String getColour() {
+    return colour;
+  }
+
+  public VehicleStatus getStatus() {
+    return status;
+  }
+
   public String getManufacturer() {
     return manufacturer;
   }
