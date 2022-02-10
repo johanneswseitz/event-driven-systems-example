@@ -10,10 +10,18 @@ on:
     branches: [ main ]
 
 jobs:
+  services:
+    postgres:
+      image: postgres:14.1-alpine
+        env:
+          POSTGRES_PASSWORD: admin
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 17
