@@ -13,17 +13,26 @@ public class Vehicle {
   private UUID id;
   private final VehicleType type;
   private final String manufacturer;
+  private final String model;
+  private final String modelYear;
+  private final String licencePlate;
+  private final String colour;
+  private final VehicleStatus status;
 
   @PersistenceConstructor
-  public Vehicle(UUID id, VehicleType type, String manufacturer) {
-    this.id = requireNonNull(id);
+  public Vehicle(UUID id, VehicleType type, String manufacturer, String model, String modelYear, String licencePlate, String colour, VehicleStatus status) {
+    this.id = id;
     this.type = requireNonNull(type);
     this.manufacturer = requireNonNull(manufacturer);
+    this.model = requireNonNull(model);
+    this.modelYear = requireNonNull(modelYear);
+    this.licencePlate = licencePlate;
+    this.colour = requireNonNull(colour);
+    this.status = requireNonNull(status);
   }
 
-  public Vehicle(VehicleType type, String manufacturer) {
-    this.type = requireNonNull(type);
-    this.manufacturer = requireNonNull(manufacturer);
+  public Vehicle(VehicleType type, String manufacturer, String model, String modelYear, VehicleStatus status, String colour, String licencePlate) {
+    this(null, type, manufacturer, model, modelYear, licencePlate, colour, status);
   }
 
   public UUID getId() {
@@ -41,4 +50,11 @@ public class Vehicle {
   public enum VehicleType {
     CAR
   }
+
+  public enum VehicleStatus {
+    ORDERED,
+    AVAILABLE,
+    IN_SERVICE
+  }
+
 }
