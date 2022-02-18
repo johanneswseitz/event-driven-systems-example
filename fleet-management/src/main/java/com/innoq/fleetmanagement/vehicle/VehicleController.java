@@ -2,6 +2,7 @@ package com.innoq.fleetmanagement.vehicle;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,13 +26,13 @@ public class VehicleController {
 
   @GetMapping("/order-new-car/")
   public String orderNewCar() {
-      System.out.println("Should have ordered a new car!");
       return "order_new_car";
   }
 
   @PostMapping("/order-new-car/")
-  public String orderNewCarPost() {
-      return "redirect:/";
+  public String orderNewCarPost(@ModelAttribute Vehicle vehicle) {
+    vehicleRepository.save(vehicle);
+    return "redirect:/";
   }
 
 }

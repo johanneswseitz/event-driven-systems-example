@@ -35,6 +35,11 @@ public class Vehicle {
     this(null, type, manufacturer, model, modelYear, licencePlate, colour, status);
   }
 
+
+  public Vehicle(String manufacturer, String model, String modelYear, String colour) {
+    this(null, VehicleType.CAR, manufacturer, model, modelYear, null, colour, VehicleStatus.ORDERED);
+  }
+
   public UUID getId() {
     return id;
   }
