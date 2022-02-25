@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{base}" th:with="currentPage='order-new-car'">>
+<div layout:fragment="content">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Vehicle Details</h1>
+    </div>
+    <h1>Form</h1>
+    <form action="#" th:action="@{'/vehicles/'+${vehicle.getId()}}" th:object="${vehicle}" method="post">
+        <p>Colour: <input type="text" th:field="*{colour}"/></p>
+        <p>Licence Plate: <input type="text" th:field="*{licencePlate}"/></p>
+        <p>Status: <input type="text" th:field="*{status}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</div>
+</html>

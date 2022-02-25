@@ -10,14 +10,26 @@ import static java.util.Objects.requireNonNull;
 public class Vehicle {
 
   @Id
-  private UUID id;
+  private final UUID id;
   private final VehicleType type;
   private final String manufacturer;
   private final String model;
   private final String modelYear;
-  private final String licencePlate;
-  private final String colour;
-  private final VehicleStatus status;
+  private String licencePlate;
+  private String colour;
+  private VehicleStatus status;
+
+  public void setLicencePlate(String licencePlate) {
+    this.licencePlate = licencePlate;
+  }
+
+  public void setColour(String colour) {
+    this.colour = colour;
+  }
+
+  public void setStatus(VehicleStatus status) {
+    this.status = status;
+  }
 
   @PersistenceConstructor
   public Vehicle(UUID id, VehicleType type, String manufacturer, String model, String modelYear, String licencePlate, String colour, VehicleStatus status) {
@@ -33,11 +45,6 @@ public class Vehicle {
 
   public Vehicle(VehicleType type, String manufacturer, String model, String modelYear, VehicleStatus status, String colour, String licencePlate) {
     this(null, type, manufacturer, model, modelYear, licencePlate, colour, status);
-  }
-
-
-  public Vehicle(String manufacturer, String model, String modelYear, String colour) {
-    this(null, VehicleType.CAR, manufacturer, model, modelYear, null, colour, VehicleStatus.ORDERED);
   }
 
   public UUID getId() {
